@@ -1,6 +1,6 @@
 package com.easywaldo.book.springboot;
 
-import com.easywaldo.book.springboot.web.HelloResponseDto;
+import com.easywaldo.book.springboot.web.dto.HelloResponseDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
