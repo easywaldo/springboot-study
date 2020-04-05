@@ -45,4 +45,25 @@ public class PostRepositoryTest {
         assertThat(data.getContent()).isEqualTo(content);
         assertThat(data.getAuthor()).isEqualTo(author);
     }
+
+    @Test
+    public void when_post_repo_delete_doc_then_dod_is_null() {
+        // Arrange
+        String title = "sample";
+        String content = "test";
+        String author = "test author";
+
+        Posts post = _postRepository.save(Posts.builder()
+            .title(title)
+            .content(content)
+            .author(author)
+            .build());
+
+        // Act
+        _postRepository.deleteById(post.getId());
+
+        // Assert
+       assertThat(_postRepository.findById(post.getId())).isEmpty();
+
+    }
 }

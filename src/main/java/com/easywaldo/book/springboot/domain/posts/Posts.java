@@ -22,9 +22,10 @@ public class Posts {
     @Column(length = 500, nullable = false)
     private String title;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "text", nullable = true)
     private String content;
 
+    @Column(length = 100, nullable = false)
     private String author;
 
     @Builder
