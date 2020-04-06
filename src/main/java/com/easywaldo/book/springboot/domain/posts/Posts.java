@@ -1,5 +1,6 @@
 package com.easywaldo.book.springboot.domain.posts;
 
+import jdk.nashorn.internal.objects.annotations.Property;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
