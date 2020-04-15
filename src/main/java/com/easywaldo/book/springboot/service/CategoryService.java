@@ -11,16 +11,26 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class CategoryService {
+
     @Autowired
     private final CategoryRepository _categoryRepository;
+
+    private static CachingService _cachingService = new CachingService();
 
     public Category selectCategoryById(Integer id) {
         Optional<Category> result = _categoryRepository.findById(id);
         return  result.get();
     }
 
-    public List<Category> selectAllCategory() {
-            return _categoryRepository.findAll();
+    public List<Category> selectAllCategory() throws Exception {
+        List<Category> result =  null;
+
+        result = (List<Category>)_cachingService.GetCache("selectAllCategory");
+        if (_cachingService.GetCount() == 0 || result == null) {
+            result = _categoryRepository.findAll();
+            _cachingService.AddCache("selectAllCategory", result);
+        }
+        return  result;
     }
 
 }
