@@ -2,9 +2,12 @@ package com.easywaldo.book.springboot.service;
 
 import com.easywaldo.book.springboot.domain.products.Category;
 import com.easywaldo.book.springboot.domain.products.CategoryRepository;
+import com.easywaldo.book.springboot.web.dto.CategorySaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +34,11 @@ public class CategoryService {
             _cachingService.AddCache("selectAllCategory", result);
         }
         return  result;
+    }
+
+    @Transactional
+    public Integer save(CategorySaveRequestDto categorySaveRequestDto) {
+        return _categoryRepository.save(categorySaveRequestDto.toEntity()).getId();
     }
 
 }

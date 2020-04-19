@@ -1,7 +1,9 @@
 package com.easywaldo.book.springboot.domain.products;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.omg.CORBA.INTERNAL;
 
 import javax.persistence.*;
 
@@ -18,4 +20,17 @@ public class Category {
 
     @Column(name = "category_name")
     private String Name;
+
+    @Column(name = "parent_no")
+    private Integer ParentNo;
+
+    @Column(name = "depth")
+    private  Integer DepthNo;
+
+    @Builder
+    public Category(String name, Integer parentNo, Integer depthNo) {
+        this.Name = name;
+        this.ParentNo = parentNo;
+        this.DepthNo = depthNo;
+    }
 }
