@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -32,6 +34,12 @@ public class CategoryController {
     @RequestMapping("/api/v1/category")
     public Integer save(@RequestBody CategorySaveRequestDto requestDto) {
         return _categoryService.save(requestDto);
+    }
+
+    @DeleteMapping
+    @RequestMapping("/api/v1/category/delete/{id}")
+    public void delete(@PathVariable Integer id) {
+        _categoryService.delete(id);
     }
 
 }

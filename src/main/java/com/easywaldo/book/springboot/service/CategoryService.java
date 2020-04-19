@@ -37,6 +37,11 @@ public class CategoryService {
     }
 
     @Transactional
+    public void delete(Integer categoryId) {
+        _categoryRepository.deleteById(categoryId);
+    }
+
+    @Transactional
     public Integer save(CategorySaveRequestDto categorySaveRequestDto) {
         return _categoryRepository.save(categorySaveRequestDto.toEntity()).getId();
     }
