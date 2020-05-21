@@ -1,5 +1,6 @@
 package com.easywaldo.book.springboot.domain.posts;
 
+import com.easywaldo.book.springboot.domain.BaseTimeEntity;
 import jdk.nashorn.internal.objects.annotations.Property;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -34,5 +35,10 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void Update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
