@@ -3,7 +3,6 @@ package com.easywaldo.book.springboot.domain.products;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.omg.CORBA.INTERNAL;
 
 import javax.persistence.*;
 

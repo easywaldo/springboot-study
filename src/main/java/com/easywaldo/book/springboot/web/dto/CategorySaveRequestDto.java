@@ -4,7 +4,6 @@ import com.easywaldo.book.springboot.domain.products.Category;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.omg.CORBA.INTERNAL;
 
 @Getter
 @NoArgsConstructor
